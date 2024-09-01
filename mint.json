@@ -25,6 +25,9 @@
     "name": "Dashboard",
     "url": "https://dashboard.mintlify.com"
   },
+  "api": {
+    "baseUrl": "https://beta.smtpexpress.com/docs"
+  },
   "tabs": [
     {
       "name": "API Reference",
