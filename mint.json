@@ -1,91 +1,90 @@
 {
   "$schema": "https://mintlify.com/schema.json",
-  "name": "Starter Kit",
+  "name": "Docs | SMTP Express - The Express Emailing Experience for Businesses and Developers",
   "logo": {
-    "dark": "/logo/dark.svg",
-    "light": "/logo/light.svg"
+    "dark": "/assets/images/logo.svg",
+    "light": "/assets/images/logo.svg",
+    "href": "https://smtpexpress.com"
   },
-  "favicon": "/favicon.svg",
+  "favicon": "/assets/favicon.png",
+  "theme": "prism",
+  "modeToggle": {
+    "default": "dark",
+    "isHidden": true
+  },
   "colors": {
-    "primary": "#0D9373",
-    "light": "#07C983",
-    "dark": "#0D9373",
-    "anchors": {
-      "from": "#0D9373",
-      "to": "#07C983"
-    }
+    "primary": "#F2B311",
+    "light": "#F2B311",
+    "dark": "#F2B311",
+    "background": {
+      "dark": "#0B010D"
+    },
+    "anchors": "#F2B311"
   },
   "topbarLinks": [
     {
-      "name": "Support",
-      "url": "mailto:hi@mintlify.com"
-    }
-  ],
-  "topbarCtaButton": {
-    "name": "Dashboard",
-    "url": "https://dashboard.mintlify.com"
-  },
-  "tabs": [
-    {
-      "name": "API Reference",
-      "url": "api-reference"
-    }
-  ],
-  "anchors": [
-    {
-      "name": "Documentation",
-      "icon": "book-open-cover",
-      "url": "https://mintlify.com/docs"
-    },
-    {
-      "name": "Community",
-      "icon": "slack",
-      "url": "https://mintlify.com/community"
+      "name": "Case Studies",
+      "url": "https://blog.smtpexpress.com/case-studies"
     },
     {
       "name": "Blog",
+      "url": "https://blog.smtpexpress.com"
+    }
+  ],
+  "topbarCtaButton": {
+    "name": "Get started",
+    "url": "https://beta.smtpexpress.com/signin"
+  },
+  "topAnchor": {
+    "name": "Documentation",
+    "icon": "book-open",
+    "iconType": "duotone"
+  },
+  "anchors": [
+    {
+      "name": "API Reference",
+      "icon": "book-open",
+      "url": "api-reference"
+    },
+    {
+      "name": "Knowledge Base",
       "icon": "newspaper",
-      "url": "https://mintlify.com/blog"
+      "url": "knowledge-base"
+    },
+    {
+      "name": "Community",
+      "icon": "discord",
+      "url": "https://discord.gg/DfAFqVgQY5"
     }
   ],
   "navigation": [
     {
-      "group": "Get Started",
+      "group": "Documentation",
       "pages": [
-        "introduction",
-        "quickstart",
-        "development"
+        "/documentation/quickstart",
+        "/documentation/create-a-project",
+        "/documentation/obtaining-a-project-secret"
       ]
     },
     {
-      "group": "Essentials",
+      "group": "API Reference",
       "pages": [
-        "essentials/markdown",
-        "essentials/code",
-        "essentials/images",
-        "essentials/settings",
-        "essentials/navigation",
-        "essentials/reusable-snippets"
+        "/api-reference/introduction"
       ]
     },
     {
-      "group": "API Documentation",
+      "group": "Knowledge Base",
       "pages": [
-        "api-reference/introduction"
-      ]
-    },
-    {
-      "group": "Endpoint Examples",
-      "pages": [
-        "api-reference/endpoint/get",
-        "api-reference/endpoint/create",
-        "api-reference/endpoint/delete"
+        "/knowledge-base/sending-with-gmail"
       ]
     }
   ],
+  "feedback": {
+    "thumbsRating": true
+  },
   "footerSocials": {
-    "x": "https://x.com/mintlify",
-    "github": "https://github.com/mintlify",
-    "linkedin": "https://www.linkedin.com/company/mintsearch"
+    "discord": "https://discord.gg/DfAFqVgQY5",
+    "x": "https://x.com/thesmtpexpress",
+    "linkedin": "https://www.linkedin.com/company/thesmtpexpress/"
   }
 }
