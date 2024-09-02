@@ -59,7 +59,7 @@
   ],
   "navigation": [
     {
-      "group": "Documentation",
+      "group": "Introduction",
       "pages": [
         "/documentation/quickstart",
         "/documentation/create-a-project",
