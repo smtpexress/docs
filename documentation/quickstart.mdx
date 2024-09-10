@@ -1,80 +1,53 @@
 ---
-position: 1
-slug: "introduction"
-title: "Introduction"
+title: 'Quick starts'
+description: 'In this guide, you will learn how to create a project, test with QuickSend and get setup with our SDK.'
 ---
-
-import Snippet from "../components/misc/snippet/Snippet.tsx"
-
-## What is SMTP Express?
-
-SMTP Express is an email delivery service that allows developers send emails directly from their projects without needing a backend server. We have truly simplified transactional emails for web applications and any other platform that cannot directly connect to an SMTP server by letting you establish SMTP connections over HTTPS
-
-This documentation is designed to help you get started with SMTP Express and explore its features in-depth. From setting up your account and obtaining your project secrets to sending your first email with SMTP Express. Let's get started!
 
 <h2 id="creating-a-project"> Creating an SMTP Express Project</h2>
 
-An SMTP Express project is an instance of a connection to an SMTP server, as such you will need valid SMTP server credentials to create a project. If you do not have smtp server credentials, you can opt to use our internal smtp servers to create your project.
+An SMTP Express project is an instance of a connection to an SMTP server. To create a project, you don't have to worry about setting up SMTP credentials as we will provide you with an internal server configuration.
 
-### Using our Internal SMTP server
+To create a project, [sign in](https://smtpexpress.com/signin) on the SMTP Express website, you will be redirected to your project dashboard. by default it's empty. Click on the **New Project** button to get started.
 
-It is possible to create a project without owning an SMTP server configuration. All you have to do is toggle the _**"I do not have an SMTP server"**_ option when creating your project. A sender email will be assigned to your project, exclusively for sending mail.
+Provide a name that's related to your project, then click on **Create my project**.
 
-### Custom SMTP Server Credentials
+<Note>When you create a project, we provide you with a project ID, a project secret and a sender address. This address will be used to send your mail.</Note>
 
-To establish a secure connection to an SMTP server, you would typically need the host, its port, a username and a password to log into the server. Services like Amazon SES, Zeptomail, Sendgrid, Mailtrap offer dedicated SMTP servers for your domains and If your personal email providers allow you send emails over their smtp servers, that is also a viable option.
+You will find all this data on your project overview page.
+<Frame>
+  <img src="/assets/images/secret.png" />
+</Frame>
 
-### Internal vs Custom SMTP Servers
+<Warning>It's important to remember that if you have not added a domain to this project, you can only send emails from your sender address; otherwise, it will fail.</Warning>
 
-When creating a project with our internal servers, an email address will be issued to you and this is the only sender email address that can be used on that project. Of course, it doesn't affect the deliverability of the email.
+<h2 id="using-sdk-or-api-request"> Using Javascript SDK </h2>
 
-If your intention is to send from a custom domain email (e.g name@yourwebsite.com), you will definitely need to provide custom SMTP server credentials that belongs to the domain to achieve that. Ethereal.email is a provider of sandbox SMTP server credentials
+The simplest way to get started with SMTP Express is through our developer tools; you can also make a direct API call to our standalone service. This is useful if you do not want to install anything.
 
----
+```bash
+npm install smtpexpress
+```
 
-<h2 id="obtaining-a-project-secret"> Obtaining a Project Secret </h2>
+Next, create an API client that takes an object as an argument. It's important to know that your `projectSecret` is used as your bearer token when interacting with our APIs.
+```javascript ApiClient.js
+import { createClient } from "smtpexpress"
 
-All our APIs are secured using bearer tokens in the form of project secrets. They can be obtained by navigating to your **_Project > Settings_ > Project Secrets**. A project secret can only be used to perform actions on a project. A project can have multiple project secrets depending on the environment it is being used.
-
-Speaking of environments, a project secret is also tied to a set of authorized domains and any requests originating from an unauthorized source will be denied. This list of domains can be modified at any time from your project dashboard.
-
-<img
-  src="https://res.cloudinary.com/devtenotea/image/upload/v1704575555/yszqpqmveoekuzurpd1s.gif"
-  alt="creating a project"
-  style={{
-    objectFit: "contain",
-    height: 600,
-    width: "max-content",
-    objectPosition: "left",
-    border: "1px solid var(--footer-border-color)",
-  }}
-/>
-
----
-
-<h2 id="using-your-project-secret"> Using your project secret</h2>
-
-Your project secret is used as your bearer token when interacting with our APIs. See code examples below
-
-<Snippet
-  snippets={[
-    {
-      id: 1,
-      name: "Javascript SDK",
-      language: "javascript",
-      snippet: `// npm install smtpexpress
-import { createClient } from "smtpexpress"\n
 const smtpexpressClient = createClient({
   projectId: "<INSERT_PROJECT_ID>",
   projectSecret: "<INSERT_PROJECT_SECRET>"
-});`,
-    },
-    {
-      id: 2,
-      name: "Curl",
-      language: "bash",
-      snippet:
-        "curl --location \n--request POST 'https://api.smtpexpress.com/send' \n--header 'Authorization: Bearer <INSERT_PROJECT_SECRET>'",
-    },
-  ]}
-/>
+});
+```
+
+
+<h2 id="quick-send-with-api-call">Quick Send with API call</h2>
+
+You can use this endpoint to make direct call to SMTP Express.
+
+```shell cURL
+curl --location 
+--request POST 'https://api.smtpexpress.com/send' 
+--header 'Authorization: Bearer <INSERT_PROJECT_SECRET>'
+```
+
+
+

@@ -32,7 +32,7 @@
     }
   ],
   "topbarCtaButton": {
-    "name": "Get started",
+    "name": "Get Started",
     "url": "https://beta.smtpexpress.com/signin"
   },
   "topAnchor": {
@@ -61,9 +61,31 @@
     {
       "group": "Introduction",
       "pages": [
+        "/documentation/welcome-to-smtp-express"
+      ]
+    },
+    {
+      "group": "Getting Started",
+      "pages": [
         "/documentation/quickstart",
         "/documentation/create-a-project",
-        "/documentation/obtaining-a-project-secret"
+        "/documentation/project-secret"
+      ]
+    },
+    {
+      "group": "Domains",
+      "pages": [
+        "/documentation/adding-a-domain",
+        "/documentation/connect-a-custom-server",
+        "/documentation/verify-dns-record"
+      ]
+    },
+    {
+      "group": "Templates",
+      "pages": [
+        "/documentation/creating-a-template",
+        "/documentation/working-with-variables",
+        "/documentation/sending-with-a-template"
       ]
     },
     {
@@ -79,6 +101,12 @@
       ]
     }
   ],
+  "api": {
+    "baseUrl": "https://api.smtpexpress.com/send",
+    "auth": {
+      "method": "bearer" 
+    }
+  },
   "feedback": {
     "thumbsRating": true
   },
