@@ -72,11 +72,12 @@
       ]
     },
     {
-      "group": "Templates",
+      "group": "Send API",
       "pages": [
-        "/documentation/creating-a-template",
-        "/documentation/working-with-variables",
-        "/documentation/sending-with-a-template"
+        "/documentation/using-a-template",
+        "/documentation/calender-invites",
+        "/documentation/sending-attachments"
+
       ]
     },
     {

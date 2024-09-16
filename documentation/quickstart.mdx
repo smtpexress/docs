@@ -1,0 +1,53 @@
+---
+title: 'Quick starts'
+description: 'In this guide, you will learn how to create a project, test with QuickSend and get setup with our SDK.'
+---
+
+<h2 id="creating-a-project"> Creating an SMTP Express Project</h2>
+
+An SMTP Express project is an instance of a connection to an SMTP server. To create a project, you don't have to worry about setting up SMTP credentials as we will provide you with an internal server configuration.
+
+To create a project, [sign in](https://smtpexpress.com/signin) on the SMTP Express website, you will be redirected to your project dashboard. by default it's empty. Click on the **New Project** button to get started.
+
+Provide a name that's related to your project, then click on **Create my project**.
+
+<Note>When you create a project, we provide you with a project ID, a project secret and a sender address. This address will be used to send your mail.</Note>
+
+You will find all this data on your project overview page.
+<Frame>
+  <img src="/assets/images/secret.png" />
+</Frame>
+
+<Warning>It's important to remember that if you have not added a domain to this project, you can only send emails from your sender address; otherwise, it will fail.</Warning>
+
+<h2 id="using-sdk-or-api-request"> Using Javascript SDK </h2>
+
+The simplest way to get started with SMTP Express is through our developer tools; you can also make a direct API call to our standalone service. This is useful if you do not want to install anything.
+
+```bash
+npm install smtpexpress
+```
+
+Next, create an API client that takes an object as an argument. It's important to know that your `projectSecret` is used as your bearer token when interacting with our APIs.
+```javascript ApiClient.js
+import { createClient } from "smtpexpress"
+
+const smtpexpressClient = createClient({
+  projectId: "<INSERT_PROJECT_ID>",
+  projectSecret: "<INSERT_PROJECT_SECRET>"
+});
+```
+
+
+<h2 id="quick-send-with-api-call">Quick Send with API call</h2>
+
+You can use this endpoint to make direct call to SMTP Express.
+
+```shell cURL
+curl --location 
+--request POST 'https://api.smtpexpress.com/send' 
+--header 'Authorization: Bearer <INSERT_PROJECT_SECRET>'
+```
+
+
+

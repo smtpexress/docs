@@ -1,0 +1,44 @@
+---
+title: 'Sending Attachments'
+description: 'Learn to send an Attachments'
+---
+
+Yes you can also send attachments (documents, images and more) alongside your emails using our send API. We accept all file formats and there are no known file size limits. Attachments can be added as URLs or direct file uploads. We highly recommend sending urls as this would be processed faster that direct file uploads.
+
+## Sending an attachment with your mail
+
+<CodeGroup>
+```javascript Javascript SDK
+// npm install smtpexpress
+import { createClient } from "smtpexpress"
+const smtpexpressClient = createClient({...});
+
+smtpexpressClient.sendApi.sendMail({
+  ...
+  attachments: [
+    "https://link-to-image.png", 
+    "https://link-to-document.png"
+  ]
+});
+```
+
+```bash cURL
+curl 
+--location 'https://api.smtpexpress.com/send'
+--header 'Content-Type: application/json'
+--header 'Authorization: <INSERT_PROJECT_SECRET>''
+--data-raw '{
+  ...
+  "attachments": [
+    "https://link-to-image.png", 
+    "<INSTANCE_OF_FILE>"
+  ]
+}'
+```
+</CodeGroup>
+
+## Direct file uploads as attachment
+The send API supports multipart/formdata to facilitate direct file uploads. While it's great, it also means the method of sending your request could change very quickly. To relieve developers of this, we have fully accounted for the intricacies involved with direct file uploads in all available SDKs and we strongly recommend you opt for that as opposed to setting up from scratch.
+
+## Attachments Parameters
+Add table here

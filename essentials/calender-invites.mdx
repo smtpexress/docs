@@ -1,0 +1,43 @@
+---
+title: 'Calendar Invites'
+description: 'Learn to use calender invite'
+---
+
+The send API lets you create calendar invites in with your email, but we are not just talking .ics files. With our calendar invites, your users can RSVP for an event you create. This means the event gets added to their calendars, and you in turn, get to know the status of your attendees. This is especially useful if you are running an event management system, are scheduling calls or whatever use case you might have. Here's how to do it with SMTP Express.
+
+## Sending a calendar invite
+
+<CodeGroup>
+```javascript Javascript SDK 
+// npm install smtpexpress
+import { createClient } from "smtpexpress"
+const smtpexpressClient = createClient({...});
+
+smtpexpressClient.sendApi.sendMail({
+  ...
+  calendarEvent: {
+    title: "My event name",
+    startDate: "2024-01-18T23:00:00.000Z",
+    endDate: "2024-01-19T23:00:00.000Z"
+  },
+})
+```
+
+```bash cURL
+curl 
+--location 'https://api.smtpexpress.com/send'
+--header 'Content-Type: application/json'
+--header 'Authorization: <INSERT_PROJECT_SECRET>''
+--data-raw '{
+  ...
+  "calendarEvent": {
+    "title": "My event name",
+    "startDate": "2024-01-18T23:00:00.000Z",
+    "endDate": "2024-01-19T23:00:00.000Z"
+  },
+}'
+```
+</CodeGroup>
+
+## Calendar event parameters
+Add your table parameter here
