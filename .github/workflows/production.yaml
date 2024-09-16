@@ -44,7 +44,7 @@ jobs:
             git pull
 
             echo "Installing project dependencies =========================================="
-            npm install
+            yarn install
 
             echo "Restarting the server =========================================="
             pm2 start ecosystem.config.js --only $APP_NAME
