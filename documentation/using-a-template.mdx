@@ -1,0 +1,74 @@
+---
+title: 'Using a Template'
+description: 'Learn to use template with smtp express'
+---
+
+While you can absolutely send custom html in your requests to the send API, there can be some drawbacks like having to manage the html from your codebase, or suffering for the overhead that comes with that. To solve this, you can create your email html directly from your project dashboard and use template variables to inject dynamic content into your template.
+
+To create a template, navigate to the Templates menu from your project dashboard and click on the New Template button. To create a template variable, open the template you just created and click on the Variables tab.
+
+## Using template variables
+So let's say you've started working on an email template to notify your users of an activity on their account, you can make a strong impression by starting with a personalized greeting by having their names as a variable. Using SMTP Express, this is what that looks like.
+
+```html
+   <h1> Hi there {{variableId}} </h1>
+```
+
+## Sending an email using a template
+This works by replacing the message parameter with the template object as seen in the snippet below.
+
+
+<CodeGroup>
+```javascript Javascript SDK
+// npm install smtpexpress
+import { createClient } from "smtpexpress"
+const smtpexpressClient = createClient({...});
+
+smtpexpressClient.sendApi.sendMail({
+  subject: "A message from the express",
+  template: {
+    id: "example-template-id",
+    variables: {
+      variableId: "variableValue"
+    }
+  },
+  sender: {
+    name: "Tenotea",
+    email: "tenotea@smtpexpress.com"
+  },
+  recipients: {
+    name: "My recipient's name", 
+    email: "recipient@recipients.com"
+  }
+});
+```
+
+
+```bash cURL
+--location 'https://api.smtpexpress.com/send'
+--header 'Content-Type: application/json'
+--header 'Authorization: <INSERT_PROJECT_SECRET>''
+--data-raw '{
+  "subject": "A message from the express",
+  "template": {
+    "id": "example-template-id",
+    "variables": {
+      "variableId": "variableValue"
+    }
+  },
+  "sender": {
+    "name": "Tenotea",
+    "email": "tenotea@smtpexpress.com"
+  },
+  "recipients": {
+    "name": "My recipients name", 
+    "email": "recipient@recipients.com"
+  },
+}'
+```
+</CodeGroup>
+
+## Template Parameters
+Descriptions for the send API request parameters can be found under the [send api docs]().
+
+### Add table to this section
