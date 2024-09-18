@@ -58,25 +58,10 @@
     {
       "group": "Essentials",
       "pages": [
-        "/essentials/creating-a-project",
-        "/essentials/obtaining-your-project-secret",
-        "/essentials/the-Send-API"
-      ]
-    },
-    {
-      "group": "Domains",
-      "pages": [
-        "/essentials/adding-a-domain",
-        "/essentials/connect-a-custom-server",
-        "/essentials/verify-dns-record"
-      ]
-    },
-    {
-      "group": "Templates",
-      "pages": [
-        "/documentation/creating-a-template",
-        "/documentation/working-with-variables",
-        "/documentation/sending-with-a-template"
+        "/essentials/credentials",
+        "/essentials/send",
+        "/essentials/domains",
+        "/essentials/templates"
       ]
     },
     {
