@@ -1,0 +1,51 @@
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    name: Deploy to production server
+    runs-on: ubuntu-latest
+    steps:
+      - name: Executing remote ssh commands using ssh key
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_ADDRESS }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_PUBLIC_KEY }}
+          script: |
+            BRANCH_NAME=main
+            APP_NAME=docs.smtpexpress
+            USER_DIRECTORY=/root
+            PROJECT_DIRECTORY=$USER_DIRECTORY/$APP_NAME
+            GITHUB_REPOSITORY=git@github.com:prime-labs/smtpexpress-docs.git
+
+            echo "Kill all the running PM2 actions =========================================="
+            pm2 stop $APP_NAME || :
+
+            echo "Jump to user folder =========================================="
+            cd $USER_DIRECTORY
+
+            echo "Check if the codebase has been cloned =========================================="
+
+            if [ ! -d "$PROJECT_DIRECTORY" ]; then
+            echo "Empty Server, Cloning repository now =========================================="
+            git clone $GITHUB_REPOSITORY -b $BRANCH_NAME ./$APP_NAME
+            echo "Project has been cloned =========================================="
+            fi
+
+            echo "Entering the app folder =========================================="
+            cd $APP_NAME
+
+            echo "Get Codebase Updates from git =========================================="
+            git stash
+            git pull
+
+            echo "Installing project dependencies =========================================="
+            npm install
+
+            echo "Restarting the server =========================================="
+            pm2 start ecosystem.config.js --only $APP_NAME
+            echo "Deployment Successful =========================================="

@@ -1,0 +1,72 @@
+---
+title: 'Quickstart Guide'
+description: 'In this guide, you will learn how to create a project, test email delivery with Quick Send and directly interact with the Send API all under 5 minutes!'
+---
+
+## 1. Creating a Project
+An SMTP Express project is now synonymous to spinning up a mail server. Simply put, a project is where all your emailing activities take place. Of course, you'll need to [sign up for an account](https://smtpexpress.com/signin) before you can proceed. Once signed in, click on the `New Project` button, provide a name that's related to your project and hit enter.
+
+<Frame>
+  <img src="/assets/images/create-project.png" />
+</Frame>
+
+## 2. Email Delivery with Quick Send
+At this point, you should be seeing your project dashboard. Click on the `Quick Send` button and compose your message. Feel free to use your personal email as the recipient. When you are done, hit enter and your mail will be sent right to your inbox. Easy right? 
+
+
+## 3. Email Delivery with the Send API
+For context, we provide you with a default sender address in the form of `<project>@smtpexpress.email` which you will recognize as the sender of the email you received. You can learn more about [changing your sender address.](https://smtpexpress.com/signin)
+
+Navigate to your project overview where you will see your sender address alongside two other credentials; Your `Project ID` and your `Project Secret`.
+
+<Frame>
+  <img src="/assets/images/secret.png" />
+</Frame>
+
+For this example, we'll only be needing the project secret and of course, the sender address. Your project secret is needed to authorize your requests to the Send API and here's how you'd do that.
+
+<CodeGroup>
+
+```javascript Javascript
+// npm install javascript
+import { createClient } from "smtpexpress"
+
+const smtpexpressClient = createClient({
+  projectId: "<INSERT_PROJECT_ID>",
+  projectSecret: "<INSERT_PROJECT_SECRET>"
+});
+
+smtpexpressClient.sendApi.sendMail({
+  subject: "My first email using the Send API",
+  message: "Hello from the Express!"
+  sender: {
+    name: "SMTP Express User",
+    email: "<INSERT_SENDER_ADDRESS>"
+  },
+  recipients: "<INSERT_RECIPIENT_ADDRESS>",
+})
+```
+
+```shell cURL
+curl -XPOST 'https://api.staging.smtpexpress.com/send'
+ -H 'Authorization: Bearer <INSERT_PROJECT_SECRET>' 
+ -H "Content-type: application/json" 
+ -d '{
+ "subject": "My first email using the Send API",
+  "message": "Hello from the Express!",
+  "sender": {
+    "name": "SMTP Express User",
+    "email": "<INSERT_SENDER_ADDRESS>"
+  },
+  "recipients": "<INSERT_RECIPIENT_ADDRESS>"
+}'
+```
+
+</CodeGroup>
+
+<Note>Your sender address for this guide must be the sender address as seen in your project overview (ends with `smtpexpress.email`). Any attempt to use another email address will fail. If your intention is to send from a custom email address, [learn how to connect a custom domain](/domains/add-a-domain). </Note>
+
+## Next Steps
+Congratulations! You've gotten a feel of the Send API and how to send mails using SMTP Express. You can now take your time to explore the rest of the platform or take a deeper dive into what SMTP Express has to offer.
+
+

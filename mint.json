@@ -21,19 +21,9 @@
     },
     "anchors": "#F2B311"
   },
-  "topbarLinks": [
-    {
-      "name": "Case Studies",
-      "url": "https://blog.smtpexpress.com/case-studies"
-    },
-    {
-      "name": "Blog",
-      "url": "https://blog.smtpexpress.com"
-    }
-  ],
   "topbarCtaButton": {
     "name": "Get Started",
-    "url": "https://beta.smtpexpress.com/signin"
+    "url": "https://smtpexpress.com/signin"
   },
   "topAnchor": {
     "name": "Documentation",
@@ -44,7 +34,7 @@
     {
       "name": "API Reference",
       "icon": "book-open",
-      "url": "api-reference"
+      "url": "api"
     },
     {
       "name": "Knowledge Base",
@@ -59,39 +49,25 @@
   ],
   "navigation": [
     {
-      "group": "Introduction",
-      "pages": [
-        "/documentation/welcome-to-smtp-express"
-      ]
-    },
-    {
       "group": "Getting Started",
       "pages": [
-        "/documentation/quickstart",
-        "/documentation/create-a-project",
-        "/documentation/project-secret"
+        "/introduction",
+        "/quickstart"
       ]
     },
     {
-      "group": "Domains",
+      "group": "Essentials",
       "pages": [
-        "/documentation/adding-a-domain",
-        "/documentation/connect-a-custom-server",
-        "/documentation/verify-dns-record"
-      ]
-    },
-    {
-      "group": "Templates",
-      "pages": [
-        "/documentation/creating-a-template",
-        "/documentation/working-with-variables",
-        "/documentation/sending-with-a-template"
+        "/essentials/credentials",
+        "/essentials/send",
+        "/essentials/domains",
+        "/essentials/templates"
       ]
     },
     {
       "group": "API Reference",
       "pages": [
-        "/api-reference/introduction"
+        "/api/introduction"
       ]
     },
     {
@@ -104,7 +80,7 @@
   "api": {
     "baseUrl": "https://api.smtpexpress.com/send",
     "auth": {
-      "method": "bearer" 
+      "method": "bearer"
     }
   },
   "feedback": {

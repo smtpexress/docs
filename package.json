@@ -1,6 +1,6 @@
 {
-  "script": {
-    "dev": "mintlify dev"
+  "scripts": {
+    "start": "mintlify dev"
   },
   "dependencies": {
     "mintlify": "^4.0.217"
