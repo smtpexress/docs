@@ -52,22 +52,24 @@
       "group": "Getting Started",
       "pages": [
         "/introduction",
-        "/quickstart"
+        "/Quickstart-Guide"
       ]
     },
     {
       "group": "Essentials",
       "pages": [
         "/essentials/credentials",
-        "/essentials/send",
-        "/essentials/domains",
-        "/essentials/templates"
+        "/essentials/domains"
       ]
     },
     {
-      "group": "API Reference",
+      "group": "The Send API",
       "pages": [
-        "/api/introduction"
+        "/send/message",
+        "/send/templates",
+        "/send/presets",
+        "/send/attachments",
+        "/send/calendar"
       ]
     },
     {
@@ -88,7 +90,7 @@
   },
   "footerSocials": {
     "discord": "https://discord.gg/DfAFqVgQY5",
-    "x": "https://x.com/thesmtpexpress",
-    "linkedin": "https://www.linkedin.com/company/thesmtpexpress/"
+    "x": "https://x.com/theexpresslabs",
+    "linkedin": "https://www.linkedin.com/company/theexpresslabs/"
   }
 }

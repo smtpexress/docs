@@ -1,43 +1,78 @@
 ---
-title: 'Sending with Gmail'
-description: 'Learn to connect gmail'
+title: 'How to connect your Gmail account to SMTP Express'
+sidebarTitle: 'Sending with Gmail'
+description: 'Turn your gmail account into a transactional powerhouse.'
 ---
 
-Some months ago, I created a guide for [SMTP Express](https://smtpexpress.com/) on sending emails from React with SMTP Express. This [blog](https://blog.openreplay.com/sending-emails-from-react-with-smtp-express/) features all the use cases you will need when building a feature that requires transactional emails. 
+Some months ago, I created a guide on sending emails from React with SMTP Express. [The article](https://blog.openreplay.com/sending-emails-from-react-with-smtp-express/) features all the use cases you will need when building a feature that requires transactional emails. 
 
-Since then, there's been an update on the [website](https://beta.smtpexpress.com/). Users can now connect their personalized email with SMTP Express, and send emails directly to recipients.
+Since then, there have been a lot of updates on [SMTP Express](https://smtpexpress.com/), including a new and improved email domain management. Not only can you connect your custom domains, you can also bring your own SMTP server and send emails directly to recipients. 
+
+In this guide, I'm going to be showing you how to connect your gmail account to SMTP Express.
 
 ## How does this work?
 
-This is done by remotely connecting to your SMTP Host address from within your project domain settings. To get there, when you create a new project, you have the option to choose between a business dashboard and a developer dashboard. Select the developer dashboard and click domains on the right navigation pane.
+This is done by remotely connecting to your SMTP Host address from within your project domain settings. 
+ > To reach your domains, Navigate to Project > Domains
 
-You should be presented with a screen that looks like this.
-![Image description](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/w8pf4p8wkbd18bbj447p.png)
+<Frame>
+  <img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/w8pf4p8wkbd18bbj447p.png" />
+</Frame>
 
-In this image, I have already connected my account. but I will walk you through how to set up yours.
+As you can see from the image, I have already connected my gmail account, but I will walk you through how to set up yours.
 
-Click on the "..." icon beside the connect domain, and now click on connect server. You will be presented with a form that requires you to input your domain name and SMTP credentials. 
-![Image description](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/gje9jnzl5wuhp9v6xnmy.png)
-In our case, this domain is "gmail.com" and the hostname is "smtp.gmail.com.". Next,, you will need to provide a a port number, username, and password.
+Start by clicking on the three dots beside the connect domain button and select connect server. You will be presented with a form that requires you to input your domain name and SMTP credentials. 
+
+<Frame>
+  <img src="/assets/images/kb-sending-with-gmail-connect-server.png" />
+</Frame>
+
+In our case, this domain is `gmail.com` and the hostname is `smtp.gmail.com`. Next, you will need to provide a port number, username, and password.
+
+---
+
+## SMTP Server Credentials
+
+<ParamField path="Domain" type="gmail.com">
+  In general, this is the domain that ends the email address you intend to send from. In our case, we'll be sending from `<username>@gmail.com` which is why we're setting the domain to gmail.com.
+</ParamField>
+
+<ParamField path="Host" type="smtp.gmail.com">
+  Bringing in a custom SMTP Server means it has an host address. For Gmail, it is `smtp.gmail.com`. If you're using a different provider, ensure you confirm the hostname of the SMTP server.
+</ParamField>
+
+<ParamField path="Port" type="587">
+  Ports `587 or 465` are standard ports that most SMTP servers expose. For Gmail, it is 587. For other providers, a different port are sometimes used. Be sure to confirm with your provider.
+</ParamField>
+
+<ParamField path="Username" type="<username>@gmail.com">
+  Username and passwords are usually issued to you as a user of an SMTP server. For Gmail, your username is your email address.
+</ParamField>
 
 
 ## How do I get my password?
-You will have to generate your app password from your Gmail account. This password will enable a remote connection with your Gmail account. to do that, follow this [link](https://myaccount.google.com/apppasswords) it will take you directly to your 
-![Image description](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/59wxzsmtdi5s29ryflht.png)
-If you add a name and generate your password, a modal will pop up containing a 16-character string code for your password.
-Head over to your developer dashboard and add this password. Then, click on Connect to this SMTP server. 
+You will have to generate your app password from your Gmail account. This password will enable a remote connection with your Gmail account. To do that, [follow this link](https://myaccount.google.com/apppasswords) to your app password generator.
+
+<Frame>
+  <img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/59wxzsmtdi5s29ryflht.png" />
+</Frame>
+
+Enter a name and press create. You will be presented with a modal containing a 16-character string code for your password. Copy it and head back to your project dashboard. Paste it into the password field and Connect to this SMTP server. 
+
+## Testing our new setup
+
 
 Now that you have connected a server, let's head over to quickly send a message and test out our new setup.
 
-![Image description](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/jq7esm5a4jp6poyd3c1n.png)
+<Frame>
+  <img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/jq7esm5a4jp6poyd3c1n.png" />
+</Frame>
 
-The image clearly shows that I have selected my new domain, and I have also added all the information needed to send a new email.  If everything goes fine, Your email should be in your inbox.
+Select `gmail.com` from the domains dropdown and enter the other half of your email address (the username). Fill out the rest of the information needed to send a new email. If everything goes fine, your email should be in your inbox with the sender being your gmail email address.
 
-This guide helps our users understand the new feature coming onboard at SMTP Express, We are including support for businesses to be able to send broadcast email, helping them in marketing campaigns. Also, we are adding a host of other features to help developers send transaction emails. Exciting times ahead!
-
-description: 'Learn how to generate a Google App Password, connect your gmail account with SMTP Express and Go Transactional!'
 ---
 
-<Info>
-  Pardon the Void. We are currently putting together a fresh set of content for this page
-</Info>
+This is one of the many capabilities SMTP Express helps you unlock and  We are rapidly adding a host of other features to improve the state of sending transactional emails. Exciting times ahead! 
+
+Sound interesting? You are [Welcome to Join us](https://smtpexpress.com/signin)!
+
