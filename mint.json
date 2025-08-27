@@ -1,6 +1,6 @@
 {
   "$schema": "https://mintlify.com/schema.json",
-  "name": "Docs | SMTP Express - The Express Emailing Experience for Businesses and Developers",
+  "name": "Documentation | SMTP Express - The Express Emailing Experience for Businesses and Developers",
   "logo": {
     "dark": "/assets/images/logo.svg",
     "light": "/assets/images/logo.svg",
@@ -52,7 +52,7 @@
       "group": "Getting Started",
       "pages": [
         "/introduction",
-        "/Quickstart-Guide"
+        "/quickstart-guide"
       ]
     },
     {
